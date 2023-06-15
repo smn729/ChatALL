@@ -1,20 +1,8 @@
 <template>
   <div class="text-center">
-    <v-menu
-      v-model="menu"
-      :close-on-content-click="false"
-      location="top"
-      scroll-strategy="block"
-      offset="12"
-    >
+    <v-menu v-model="menu" :close-on-content-click="false" location="top" scroll-strategy="block" offset="12">
       <template v-slot:activator="{ props }">
-        <v-btn
-          v-bind="props"
-          size="36"
-          color="primary"
-          flat
-          icon="mdi-dots-horizontal"
-        >
+        <v-btn v-bind="props" size="36" color="primary" flat icon="mdi-dots-horizontal">
         </v-btn>
       </template>
 
@@ -29,26 +17,12 @@
 
         <v-divider></v-divider>
 
-        <v-list
-          class="bots-list"
-          density="compact"
-          :selected="favorited"
-          select-strategy="classic"
-          nav
-        >
-          <v-list-item
-            v-for="(bot, index) in bots.all"
-            :key="index"
-            :value="bot.getClassname()"
-            color="primary"
-            @click="toggleFavorite(bot)"
-          >
+        <v-list class="bots-list" density="compact" :selected="favorited" select-strategy="classic" nav>
+          <v-list-item v-for="(bot, index) in bots.all" :key="index" :value="bot.getClassname()" color="primary"
+            @click="toggleFavorite(bot)">
             <template v-slot:prepend="{ isActive }">
               <v-list-item-action start>
-                <v-checkbox-btn
-                  color="primary"
-                  :model-value="isActive"
-                ></v-checkbox-btn>
+                <v-checkbox-btn color="primary" :model-value="isActive"></v-checkbox-btn>
               </v-list-item-action>
             </template>
             <v-list-item-title>
@@ -65,9 +39,9 @@
 <script setup>
 import { computed, ref } from "vue";
 
-import bots from "@/bots";
+import bots from "src/bots";
 import BotLogo from "./BotLogo.vue";
-import store from "@/store";
+import store from "src/store";
 
 const props = defineProps(["favBots"]);
 

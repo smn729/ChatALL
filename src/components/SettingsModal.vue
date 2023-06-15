@@ -1,10 +1,5 @@
 <template>
-  <v-dialog
-    :model-value="props.open"
-    fullscreen
-    :scrim="false"
-    transition="dialog-bottom-transition"
-  >
+  <v-dialog :model-value="props.open" fullscreen :scrim="false" transition="dialog-bottom-transition">
     <v-card>
       <v-toolbar dark color="primary">
         <v-toolbar-title>{{ $t("settings.title") }}</v-toolbar-title>
@@ -18,14 +13,8 @@
           <v-list-subheader>{{ $t("settings.general") }}</v-list-subheader>
           <v-list-item>
             <v-list-item-title>{{ $t("settings.language") }}</v-list-item-title>
-            <v-select
-              :items="languages"
-              item-title="name"
-              item-value="code"
-              hide-details
-              :model-value="lang"
-              @update:model-value="setCurrentLanguage($event)"
-            ></v-select>
+            <v-select :items="languages" item-title="name" item-value="code" hide-details :model-value="lang"
+              @update:model-value="setCurrentLanguage($event)"></v-select>
           </v-list-item>
         </div>
 
@@ -45,19 +34,19 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-i18n";
 
-import ChatGPTBotSettings from "@/components/BotSettings/ChatGPTBotSettings.vue";
-import OpenAIAPIBotSettings from "@/components/BotSettings/OpenAIAPIBotSettings.vue";
-import BingChatBotSettings from "@/components/BotSettings/BingChatBotSettings.vue";
+import ChatGPTBotSettings from "src/components/BotSettings/ChatGPTBotSettings.vue";
+import OpenAIAPIBotSettings from "src/components/BotSettings/OpenAIAPIBotSettings.vue";
+import BingChatBotSettings from "src/components/BotSettings/BingChatBotSettings.vue";
 import SparkBotSettings from "./BotSettings/SparkBotSettings.vue";
-import BardBotSettings from "@/components/BotSettings/BardBotSettings.vue";
-import MOSSBotSettings from "@/components/BotSettings/MOSSBotSettings.vue";
-import WenxinQianfanBotSettings from "@/components/BotSettings/WenxinQianfanBotSettings.vue";
-import GradioAppBotSettings from "@/components/BotSettings/GradioAppBotSettings.vue";
-import LMSYSBotSettings from "@/components/BotSettings/LMSYSBotSettings.vue";
-import HuggingChatBotSettings from "@/components/BotSettings/HuggingChatBotSettings.vue";
-import QianWenBotSettings from "@/components/BotSettings/QianWenBotSettings.vue";
-import PoeBotSettings from "@/components/BotSettings/PoeBotSettings.vue";
-import SkyWorkBotSettings from "@/components/BotSettings/SkyWorkBotSettings.vue";
+import BardBotSettings from "src/components/BotSettings/BardBotSettings.vue";
+import MOSSBotSettings from "src/components/BotSettings/MOSSBotSettings.vue";
+import WenxinQianfanBotSettings from "src/components/BotSettings/WenxinQianfanBotSettings.vue";
+import GradioAppBotSettings from "src/components/BotSettings/GradioAppBotSettings.vue";
+import LMSYSBotSettings from "src/components/BotSettings/LMSYSBotSettings.vue";
+import HuggingChatBotSettings from "src/components/BotSettings/HuggingChatBotSettings.vue";
+import QianWenBotSettings from "src/components/BotSettings/QianWenBotSettings.vue";
+import PoeBotSettings from "src/components/BotSettings/PoeBotSettings.vue";
+import SkyWorkBotSettings from "src/components/BotSettings/SkyWorkBotSettings.vue";
 
 const { t: $t, locale } = useI18n();
 const store = useStore();

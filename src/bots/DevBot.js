@@ -1,4 +1,4 @@
-import Bot from "@/bots/Bot";
+import Bot from "src/bots/Bot";
 
 export default class DevBot extends Bot {
   static _brandId = "dev"; // Brand id of the bot, should be unique. Used in i18n.

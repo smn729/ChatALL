@@ -8,8 +8,8 @@ const electron = window.require("electron");
 const ipcRenderer = electron.ipcRenderer;
 import { mapState, mapMutations } from "vuex";
 
-import Bot from "@/bots/MOSSBot";
-import LoginSetting from "@/components/BotSettings/LoginSetting.vue";
+import Bot from "src/bots/MOSSBot";
+import LoginSetting from "src/components/BotSettings/LoginSetting.vue";
 
 export default {
   components: {

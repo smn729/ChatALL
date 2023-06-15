@@ -3,8 +3,8 @@ import axios from "axios";
 import AsyncLock from "async-lock";
 
 import Bot from "./Bot";
-import store from "@/store";
-import i18n from "@/i18n";
+import store from "src/store";
+import i18n from "src/i18n";
 
 export default class MOSSBot extends Bot {
   static _brandId = "moss";
@@ -72,9 +72,8 @@ export default class MOSSBot extends Bot {
             reject(new Error(i18n.global.t("bot.failedToCreateConversation")));
           }
 
-          const url = `wss://moss.fastnlp.top/api/ws/chats/${chat_id}/records?jwt=${
-            this.getAuthHeader().headers.Authorization.split(" ")[1]
-          }`;
+          const url = `wss://moss.fastnlp.top/api/ws/chats/${chat_id}/records?jwt=${this.getAuthHeader().headers.Authorization.split(" ")[1]
+            }`;
 
           const wsp = new WebSocketAsPromised(url, {
             packMessage: (data) => {

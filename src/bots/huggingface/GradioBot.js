@@ -1,7 +1,7 @@
 import axios from "axios";
 import WebSocketAsPromised from "websocket-as-promised";
-import Bot from "@/bots/Bot";
-import i18n from "@/i18n";
+import Bot from "src/bots/Bot";
+import i18n from "src/i18n";
 
 export default class GradioBot extends Bot {
   static _brandId = "gradio"; // Brand id of the bot, should be unique. Used in i18n.

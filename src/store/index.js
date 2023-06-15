@@ -1,22 +1,23 @@
 import { createStore } from "vuex";
 import VuexPersist from "vuex-persist";
-import i18n from "@/i18n";
-import messagesPersist from "./messagesPersist";
+import i18n from "../i18n/index.js";
+import messagesPersist from "./messagesPersist.js";
 
 const getMatomo = function () {
   return window.Piwik.getAsyncTracker();
 };
 
 // 初始化 VuexPersist 实例
-const vuexPersist = new VuexPersist({
-  key: "chatall-app", // 用于存储的键名，可以根据你的应用更改
-  storage: window.localStorage, // 使用 localStorage，你还可以选择其他存储方式，如 sessionStorage
-  reducer: (state) => {
-    // eslint-disable-next-line
-    const { messages, chats, ...persistedState } = state;
-    return persistedState;
-  },
-});
+// const vuexPersist = new VuexPersist({
+//   key: "chatall-app", // 用于存储的键名，可以根据你的应用更改
+//   storage: window.localStorage, // 使用 localStorage，你还可以选择其他存储方式，如 sessionStorage
+//   reducer: (state) => {
+//     // eslint-disable-next-line
+//     const { messages, chats, ...persistedState } = state;
+//     return persistedState;
+//   },
+// });
+const vuexPersist = undefined;
 
 export default createStore({
   state: {
@@ -253,5 +254,5 @@ export default createStore({
   modules: {
     // ...你的模块
   },
-  plugins: [vuexPersist.plugin, messagesPersist.plugin], // 添加插件到 store
+  plugins: [], // 添加插件到 store
 });

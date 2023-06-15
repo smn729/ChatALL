@@ -1,8 +1,8 @@
 import AsyncLock from "async-lock";
 import axios from "axios";
 
-import Bot from "@/bots/Bot";
-import store from "@/store";
+import Bot from "src/bots/Bot";
+import store from "src/store";
 
 export default class SkyWorkBot extends Bot {
   static _brandId = "skyWork"; // Brand id of the bot, should be unique. Used in i18n.

@@ -2,8 +2,8 @@ import AsyncLock from "async-lock";
 import axios from "axios";
 import { SSE } from "sse.js";
 import { v4 as uuidv4 } from "uuid";
-import Bot from "@/bots/Bot";
-import i18n from "@/i18n";
+import Bot from "src/bots/Bot";
+import i18n from "src/i18n";
 
 export default class HuggingChatBot extends Bot {
   static _brandId = "huggingChat"; // Brand id of the bot, should be unique. Used in i18n.

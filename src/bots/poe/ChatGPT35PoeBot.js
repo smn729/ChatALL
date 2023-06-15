@@ -1,4 +1,4 @@
-import PoeBot from "@/bots/poe/PoeBot";
+import PoeBot from "src/bots/poe/PoeBot";
 import AsyncLock from "async-lock";
 
 export default class ChatGPT35PoeBot extends PoeBot {

@@ -1,39 +1,16 @@
 <template>
   <div class="footer">
-    <v-textarea
-      v-model="prompt"
-      auto-grow
-      max-rows="8.5"
-      rows="1"
-      density="comfortable"
-      hide-details
-      variant="solo"
-      :placeholder="$t('footer.promptPlaceholder')"
-      autofocus
-      @keydown="filterEnterKey"
-      style="min-width: 390px"
-    ></v-textarea>
-    <v-btn
-      color="primary"
-      elevation="2"
-      class="margin-bottom"
-      :disabled="
-        prompt.trim() === '' ||
-        favBots.filter((favBot) => activeBots[favBot.classname]).length === 0
-      "
-      @click="sendPromptToBots"
-    >
+    <v-textarea v-model="prompt" auto-grow max-rows="8.5" rows="1" density="comfortable" hide-details variant="solo"
+      :placeholder="$t('footer.promptPlaceholder')" autofocus @keydown="filterEnterKey"
+      style="min-width: 390px"></v-textarea>
+    <v-btn color="primary" elevation="2" class="margin-bottom" :disabled="prompt.trim() === '' ||
+      favBots.filter((favBot) => activeBots[favBot.classname]).length === 0
+      " @click="sendPromptToBots">
       {{ $t("footer.sendPrompt") }}
     </v-btn>
     <div class="bot-logos margin-bottom">
-      <BotLogo
-        v-for="(bot, index) in favBots"
-        :key="index"
-        :bot="bot.instance"
-        :active="activeBots[bot.classname]"
-        size="36"
-        @click="toggleSelected(bot.instance)"
-      />
+      <BotLogo v-for="(bot, index) in favBots" :key="index" :bot="bot.instance" :active="activeBots[bot.classname]"
+        size="36" @click="toggleSelected(bot.instance)" />
       <BotsMenu :favBots="favBots" />
     </div>
     <MakeAvailableModal v-model:open="isMakeAvailableOpen" :bot="clickedBot" />
@@ -45,14 +22,14 @@ import { ref, computed, onBeforeMount, reactive, watch } from "vue";
 import { useStore } from "vuex";
 
 // Components
-import MakeAvailableModal from "@/components/MakeAvailableModal.vue";
+import MakeAvailableModal from "src/components/MakeAvailableModal.vue";
 import BotLogo from "./BotLogo.vue";
 import BotsMenu from "./BotsMenu.vue";
 
 // Composables
-import { useMatomo } from "@/composables/matomo";
+import { useMatomo } from "src/composables/matomo";
 
-import _bots from "@/bots";
+import _bots from "src/bots";
 
 const { ipcRenderer } = window.require("electron");
 

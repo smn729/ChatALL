@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import Bot from "@/bots/SparkBot";
-import LoginSetting from "@/components/BotSettings/LoginSetting.vue";
+import Bot from "src/bots/SparkBot";
+import LoginSetting from "src/components/BotSettings/LoginSetting.vue";
 
 export default {
   components: {

@@ -1,7 +1,7 @@
 import AsyncLock from "async-lock";
-import Bot from "@/bots/Bot";
+import Bot from "src/bots/Bot";
 import axios from "axios";
-import store from "@/store";
+import store from "src/store";
 import { SSE } from "sse.js";
 
 function generateRandomId() {

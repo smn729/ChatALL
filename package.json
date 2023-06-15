@@ -1,7 +1,8 @@
 {
   "name": "chatall",
   "version": "1.28.28",
-  "main": "background.js",
+  "main": "index.js",
+  "type": "module",
   "description": "Chat with multiple AI bots and discover the best.",
   "author": "Sunner",
   "repository": {

@@ -8,8 +8,8 @@ const electron = window.require("electron");
 const ipcRenderer = electron.ipcRenderer;
 import { mapMutations } from "vuex";
 
-import Bot from "@/bots/SkyWorkBot";
-import LoginSetting from "@/components/BotSettings/LoginSetting.vue";
+import Bot from "src/bots/SkyWorkBot";
+import LoginSetting from "src/components/BotSettings/LoginSetting.vue";
 
 export default {
   components: {

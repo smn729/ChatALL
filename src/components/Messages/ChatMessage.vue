@@ -1,24 +1,14 @@
 <template>
-  <v-card
-    ref="root"
-    :class="[
-      'message',
-      message.type,
-      message.highlight ? 'highlight-border' : '',
-    ]"
-    :loading="message.done ? false : 'primary'"
-  >
+  <v-card ref="root" :class="[
+    'message',
+    message.type,
+    message.highlight ? 'highlight-border' : '',
+  ]" :loading="message.done ? false : 'primary'">
     <v-card-title v-if="message.type === 'response'" class="title">
       <img :src="botLogo" alt="Bot Icon" />
       {{ botFullname }}
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        size="x-small"
-        icon
-        @click="toggleHighlight"
-        :color="message.highlight ? 'primary' : ''"
-      >
+      <v-btn flat size="x-small" icon @click="toggleHighlight" :color="message.highlight ? 'primary' : ''">
         <v-icon>mdi-lightbulb-on-outline</v-icon>
       </v-btn>
       <v-btn flat size="x-small" icon @click="copyToClipboard">
@@ -29,25 +19,19 @@
       </v-btn>
     </v-card-title>
     <pre v-if="message.type === 'prompt'">{{ message.content }}</pre>
-    <Markdown
-      v-else
-      class="markdown-body"
-      :breaks="true"
-      :html="message.format === 'html'"
-      :source="message.content"
-      @click="handleClick"
-    />
+    <Markdown v-else class="markdown-body" :breaks="true" :html="message.format === 'html'" :source="message.content"
+      @click="handleClick" />
   </v-card>
   <ConfirmModal ref="confirmModal" />
 </template>
 
 <script setup>
 import { onMounted, ref, watch, computed } from "vue";
-import i18n from "@/i18n";
+import i18n from "src/i18n";
 import Markdown from "vue3-markdown-it";
-import { useMatomo } from "@/composables/matomo";
-import ConfirmModal from "@/components/ConfirmModal.vue";
-import bots from "@/bots";
+import { useMatomo } from "src/composables/matomo";
+import ConfirmModal from "src/components/ConfirmModal.vue";
+import bots from "src/bots";
 
 import "highlight.js/styles/github.css";
 import "github-markdown-css/github-markdown-light.css";
@@ -141,50 +125,50 @@ function handleClick(event) {
 
 <style scoped>
 .message {
-    border-radius: 8px;
-    padding: 16px;
-    word-wrap: break-word;
-    text-align: left;
+  border-radius: 8px;
+  padding: 16px;
+  word-wrap: break-word;
+  text-align: left;
 }
 
 .highlight-border {
-    box-shadow: 0 0 0 2px rgba(var(--v-theme-primary), 1);
+  box-shadow: 0 0 0 2px rgba(var(--v-theme-primary), 1);
 }
 
 .prompt {
-    background-color: #95EC69;
-    width: fit-content;
-    grid-column: 1 / span var(--columns);
+  background-color: #95EC69;
+  width: fit-content;
+  grid-column: 1 / span var(--columns);
 }
 
 .prompt pre {
-  white-space: pre-wrap; 
+  white-space: pre-wrap;
   font-family: inherit;
 }
 
 .response {
-    background-color: #FFF;
-    width: 100%;
-    grid-column: auto / span 1;
+  background-color: #FFF;
+  width: 100%;
+  grid-column: auto / span 1;
 }
 
 .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    padding: 0;
-    margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0;
+  margin-bottom: 8px;
 }
 
 .title img {
-    width: 20px;
-    height: 20px;
-    margin-right: 4px;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
 }
 
 .markdown-body {
-    background-color: inherit;
-    font-family: inherit;
+  background-color: inherit;
+  font-family: inherit;
 }
 </style>

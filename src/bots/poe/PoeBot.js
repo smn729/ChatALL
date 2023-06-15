@@ -1,4 +1,4 @@
-import Bot from "@/bots/Bot";
+import Bot from "src/bots/Bot";
 import axios from "axios";
 import md5 from "md5";
 import WebSocketAsPromised from "websocket-as-promised";

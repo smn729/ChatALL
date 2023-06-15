@@ -1,5 +1,5 @@
-import i18n from "@/i18n";
-import store from "@/store";
+import i18n from "../i18n/index.js";
+import store from "../store/index.js";
 
 export default class Bot {
   static _logoPackedPaths = null;
@@ -15,7 +15,7 @@ export default class Bot {
   static _settingsComponent = ""; // Vue component filename for settings
   static _outputFormat = "markdown"; // "markdown" or "html"
 
-  constructor() {}
+  constructor() { }
 
   static getInstance() {
     return new this();

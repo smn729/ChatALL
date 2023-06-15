@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { SSE } from "sse.js";
 import AsyncLock from "async-lock";
 
-import Bot from "@/bots/Bot";
-import store from "@/store";
+import Bot from "src/bots/Bot";
+import store from "src/store";
 
 // Inspired by https://v2ex.com/t/926890
 const REFRESH_SESSION_URL =
